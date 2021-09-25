@@ -2,35 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-// Include the namespace required to use Unity UI and Input System
-using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     //  public float speed = 0;
-    public TextMeshProUGUI countText;
+    public Text coinsCountText;
+    private int coinsCount;
 
     public GameObject winTextObject;
-    public GameObject loseTextObjet;
+    public GameObject loseTextObject;
 
     private float currentTime = 0f;
     private float startingTime = 10f;
 
     // private Rigidbody rb;
-    private int count;
 
     // private float movementX;
     // private float movementY;
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        count = 0;
+       // rb = GetComponent<Rigidbody>();
+        coinsCount = 0;
         currentTime = startingTime;
 
         SetCountText();
         winTextObject.SetActive(false);
-        loseTextObjet.SetActive(false);
+        loseTextObject.SetActive(false);
     }
 
     // private void OnMove(InputValue movementValue)
@@ -41,11 +40,7 @@ public class PlayerController : MonoBehaviour
     // }
     void SetCountText()
     {
-        countText.text = "Count " + count.ToString();
-        // if (count >= 12)
-        // {
-        //     YouWin();
-        // }
+        coinsCountText.text = coinsCount.ToString();
     }
 
     // void FixedUpdate()
@@ -53,13 +48,12 @@ public class PlayerController : MonoBehaviour
     //     Vector3 movement = new Vector3(movementX, 0.0f, movementY);
     //     rb.AddForce(movement*speed);
     // }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Coins"))
+        if (other.gameObject.CompareTag("Coin"))
         {
-            other.gameObject.SetActive(false);
-            count++;
-            SetCountText();
+            other.gameObject.SetActive(false); // or Destroy(other.gameObject);
+            coinsCount++;
         }
     }
 
@@ -67,12 +61,13 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Countdown();
+        SetCountText();
     }
 
     private void Countdown()
     {
         currentTime -= 1 * Time.deltaTime;
-        countdownText.text = currentTime.ToString("0");
+        // countdownText.text = currentTime.ToString("0");
 
         if (currentTime <= 0)
         {
