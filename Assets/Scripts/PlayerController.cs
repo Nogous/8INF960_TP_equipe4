@@ -12,8 +12,8 @@ public class PlayerController : MonoBehaviour
     public Text coinsCountText;
     private int coinsCount;
 
-    public Text winText;
-    public Text loseText;
+    public GameObject winText;
+    public GameObject loseText;
 
     private float currentTime = 0f;
     private float startingTime = 10f;
@@ -30,8 +30,8 @@ public class PlayerController : MonoBehaviour
         currentTime = startingTime;
 
         SetCountText();
-        winTextObject.SetActive(false);
-        loseTextObject.SetActive(false);
+        winText.SetActive(false);
+        loseText.SetActive(false);
     }
 
     // private void OnMove(InputValue movementValue)
@@ -79,11 +79,11 @@ public class PlayerController : MonoBehaviour
     
     private void YouWin()
     {
-        winTextObject.SetActive(true);
+        winText.SetActive(true);
     }
 
     private void YouLose()
     {
-        loseTextObject.SetActive(true);
+        loseText.SetActive(true);
     }
 }
