@@ -4,14 +4,16 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Ajouter le script au Gamecomponent Player + renseigner coinsCountText, winText, loseText
+
 public class PlayerController : MonoBehaviour
 {
     //  public float speed = 0;
     public Text coinsCountText;
     private int coinsCount;
 
-    public GameObject winTextObject;
-    public GameObject loseTextObject;
+    public Text winText;
+    public Text loseText;
 
     private float currentTime = 0f;
     private float startingTime = 10f;
