@@ -37,17 +37,29 @@ public class Player : MonoBehaviour
     {
         if (GameManager.instance.levelEnd)
         {
-            if (horizontalMov>0f)
+            if (GameManager.instance.winLevel)
             {
-                horizontalMov -= Time.deltaTime*10;
-                if (horizontalMov < 0f)
-                    horizontalMov = 0f;
+                horizontalMov = 0f;
+                animator.SetFloat("Speed", 0);
             }
-            else if(horizontalMov < 0f)
+
+            if (horizontalMov > 0f)
             {
-                horizontalMov += Time.deltaTime*10;
-                if (horizontalMov > 0f)
+                horizontalMov -= Time.deltaTime * 10;
+                if (horizontalMov < 0f)
+                {
                     horizontalMov = 0f;
+                    animator.SetFloat("Speed", 0);
+                }
+            }
+            else if (horizontalMov < 0f)
+            {
+                horizontalMov += Time.deltaTime * 10;
+                if (horizontalMov > 0f)
+                {
+                    horizontalMov = 0f;
+                    animator.SetFloat("Speed", 0);
+                }
             }
             return;
         }
