@@ -19,8 +19,39 @@ public class Player : MonoBehaviour
 
     private float horizontalMov;
 
+    // health
+    public int health = 10;
+    public float invincibilityDuration = 2f;
+    public float invincibilityCountdawn = 0f;
+    private bool isInvincible = false;
+
+    [SerializeField]
+    private SpriteRenderer sprite;
+
+    private void Start()
+    {
+        GameManager.instance.SetMaxHealth(health);
+    }
+
     void Update() // Update s'actualise sans arret
     {
+        if (GameManager.instance.levelEnd)
+        {
+            if (horizontalMov>0f)
+            {
+                horizontalMov -= Time.deltaTime*10;
+                if (horizontalMov < 0f)
+                    horizontalMov = 0f;
+            }
+            else if(horizontalMov < 0f)
+            {
+                horizontalMov += Time.deltaTime*10;
+                if (horizontalMov > 0f)
+                    horizontalMov = 0f;
+            }
+            return;
+        }
+
 
         // Vitesse de déplacement du personnage vers la gauche ou la droite au cours du temps (axe Horizontal)
         horizontalMov = Input.GetAxis("Horizontal") * moveSpeed * Time.fixedDeltaTime;
@@ -38,6 +69,18 @@ public class Player : MonoBehaviour
         // Problème, si déplacement à gauche, vélocité négative (déplacement sens opposé) donc on créée une variable temporairequi rend valeur asbolue
         float tempCharacterVelocity = Mathf.Abs(rb.velocity.x);
         animator.SetFloat("Speed", tempCharacterVelocity);
+
+        // invincibility gestion
+        if (isInvincible)
+        {
+            Blink();
+            invincibilityCountdawn -= Time.deltaTime;
+            if (invincibilityCountdawn <= 0f)
+            {
+                sprite.color = Color.white;
+                isInvincible = false;
+            }
+        }
     }
 
     void FixedUpdate() { // S'actualise dans des temps bien précis
@@ -73,5 +116,43 @@ public class Player : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Coin"))
+        {
+            collision.gameObject.SetActive(false);
+
+        }
+        else if (collision.CompareTag("Ennemie"))
+        {
+            if (isInvincible) return;
+
+            health -= 1;
+            if (health<=0)
+                animator.SetBool("isDead", true);
+            else
+            {
+                isInvincible = true;
+                invincibilityCountdawn = invincibilityDuration;
+            }
+            GameManager.instance.SetHealth(health);
+        }
+        else if (collision.CompareTag("KillZone"))
+        {
+            health = 0;
+            animator.SetBool("isDead", true);
+            GameManager.instance.SetHealth(health);
+        }
+    }
+
+    private void Blink()
+    {
+        if (sprite.color == Color.red)
+            sprite.color = Color.white;
+        else
+            sprite.color = Color.red;
     }
 }
