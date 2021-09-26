@@ -123,8 +123,8 @@ public class Player : MonoBehaviour
     {
         if (collision.CompareTag("Coin"))
         {
+            GameManager.instance.AddCoin();
             collision.gameObject.SetActive(false);
-
         }
         else if (collision.CompareTag("Ennemie"))
         {
@@ -145,6 +145,11 @@ public class Player : MonoBehaviour
             health = 0;
             animator.SetBool("isDead", true);
             GameManager.instance.SetHealth(health);
+        }
+        else if(collision.CompareTag("Finish"))
+        {
+            GameManager.instance.levelEnd = true;
+            GameManager.instance.winLevel = true;
         }
     }
 

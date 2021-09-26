@@ -9,7 +9,9 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public TextMeshProUGUI countdownText;
+    public TextMeshProUGUI coinText;
 
+    // condition victoire défaite
     [SerializeField]
     private GameObject winScreen;
     [SerializeField]
@@ -20,7 +22,10 @@ public class GameManager : MonoBehaviour
     private float currentTime = 0f;
 
     public bool levelEnd = false;
-    private bool winLevel = false;
+    public bool winLevel = false;
+
+    // coins
+    public int nbCoin = 0;
 
     private void Awake()
     {
@@ -64,7 +69,7 @@ public class GameManager : MonoBehaviour
         
         int tmp = (int)currentTime / 60;
 
-        countdownText.text = "Time left : " + tmp.ToString("0") + ":" + (currentTime - tmp * 60).ToString("00");
+        countdownText.text = "Time left : " + tmp.ToString("00") + ":" + (currentTime - tmp * 60).ToString("00");
 
         // Text color turns to red when timer is down to 5 seconds
         if (currentTime <= 5)
@@ -108,5 +113,11 @@ public class GameManager : MonoBehaviour
 
         slider.value = health;
         fill.color = gradient.Evaluate(slider.normalizedValue);
+    }
+
+    public void AddCoin(int i = 1)
+    {
+        nbCoin += i;
+        coinText.text = nbCoin.ToString("0");
     }
 }
