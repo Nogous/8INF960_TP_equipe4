@@ -40,7 +40,7 @@ public class MenusUIManager : MonoBehaviour
 
     public void LoadGame()
     {
-        throw new NotImplementedException();
+        SceneManager.LoadScene(1);
     }
 
     private void Update()

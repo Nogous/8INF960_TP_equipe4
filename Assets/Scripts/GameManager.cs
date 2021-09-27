@@ -27,6 +27,13 @@ public class GameManager : MonoBehaviour
     // coins
     public int nbCoin = 0;
 
+    // enneimie
+    public float InitSpeedEnemie = 1f;
+    public float speedEnemie = 1f;
+
+    public float couldawnEnnemieSpeed = 0f;
+    public float TimeEnnemieSlow = 10f;
+
     private void Awake()
     {
         if (!instance)
@@ -61,6 +68,11 @@ public class GameManager : MonoBehaviour
         }
 
         GameTimerUpdate();
+
+        if (InitSpeedEnemie != speedEnemie)
+        {
+            UpdateSpeedEnnemie();
+        }
     }
 
     private void GameTimerUpdate()
@@ -119,5 +131,20 @@ public class GameManager : MonoBehaviour
     {
         nbCoin += i;
         coinText.text = nbCoin.ToString("0");
+    }
+
+    public void PickupBonus()
+    {
+        speedEnemie = InitSpeedEnemie/3;
+        couldawnEnnemieSpeed = TimeEnnemieSlow;
+    }
+
+    public void UpdateSpeedEnnemie()
+    {
+        couldawnEnnemieSpeed -= Time.deltaTime;
+        if (couldawnEnnemieSpeed <= 0) 
+        {
+            speedEnemie = InitSpeedEnemie;
+        }
     }
 }

@@ -163,6 +163,11 @@ public class Player : MonoBehaviour
             GameManager.instance.levelEnd = true;
             GameManager.instance.winLevel = true;
         }
+        else if (collision.CompareTag("Potion"))
+        {
+            GameManager.instance.PickupBonus();
+            collision.gameObject.SetActive(false);
+        }
     }
 
     private void Blink()

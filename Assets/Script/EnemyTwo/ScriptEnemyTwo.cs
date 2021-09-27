@@ -36,18 +36,12 @@ public class ScriptEnemyTwo : MonoBehaviour
     void Update()
     {
         Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+        transform.Translate(dir.normalized * GameManager.instance.speedEnemie * Time.deltaTime, Space.World);
 
         if(touchGround==true){
             isJumping=true;
             touchGround=false;
         }
-
-        if(isJumping==true){
-       
-        }
-        
-      
        
 
         // si l'enemi est quasiment arrivé à sa destination
