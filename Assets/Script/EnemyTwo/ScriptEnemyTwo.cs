@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ScriptEnemyTwo : MonoBehaviour
 {
-
-    public float speed;
     public Transform[] waypoints;
     public SpriteRenderer graphics;
     public float jumpForce;

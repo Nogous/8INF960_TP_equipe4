@@ -7,6 +7,8 @@ TagManager:
   - Coin
   - Ennemie
   - KillZone
+  - ground
+  - Potion
   layers:
   - Default
   - TransparentFX
