@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     public float InitSpeedEnemie = 1f;
     public float speedEnemie = 1f;
 
-    public float couldawnEnnemieSpeed = 0f;
+    private float couldawnEnnemieSpeed = 0f;
     public float TimeEnnemieSlow = 10f;
 
     private void Awake()
