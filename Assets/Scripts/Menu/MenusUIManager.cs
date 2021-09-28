@@ -20,10 +20,11 @@ public class MenusUIManager : MonoBehaviour
         SceneManager.LoadScene(mainMenuSceneName);
     }
 
-    public void LoadGame(int index=2)
+    public void LoadGame(int index = 2)
     {
         SceneManager.LoadScene(index);
     }
+
     public void LoadGame(string name)
     {
         SceneManager.LoadScene(name);
