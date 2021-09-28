@@ -6,68 +6,29 @@ using System;
 public class MenusUIManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject mainMenuScene;
+    private string mainMenuSceneName;
     [SerializeField]
-    private GameObject creditsMenuScene;
-
-    [SerializeField]
-    private RectTransform background;
-
-    private Vector3 tmpPos;
-    private float focusPos = 650f;
-    private float posBGMain;
-
-    public float speed = 1f;
-
-    private void Start()
-    {
-        mainMenuScene.SetActive(true);
-        creditsMenuScene.SetActive(false);
-        posBGMain = focusPos = background.position.x;
-    }
+    private string creditsMenuSceneName;
 
     public void LoadCreditsMenu()
     {
-        mainMenuScene.SetActive(false);
-        focusPos = 78f;
+        SceneManager.LoadScene(creditsMenuSceneName);
     }
 
     public void LoadMainMenu()
     {
-        creditsMenuScene.SetActive(false);
-        focusPos = posBGMain;
+        SceneManager.LoadScene(mainMenuSceneName);
     }
 
-    public void LoadGame()
+    public void LoadGame(int index=2)
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(index);
     }
-
-    private void Update()
+    public void LoadGame(string name)
     {
-        if (background.position.x == focusPos) return;
-
-        tmpPos = background.position;
-        if (tmpPos.x<focusPos)
-        {
-            tmpPos.x += Time.deltaTime * speed;
-            if (tmpPos.x>focusPos)
-            {
-                tmpPos.x = focusPos;
-                mainMenuScene.SetActive(true);
-            }
-        }
-        else
-        {
-            tmpPos.x -= Time.deltaTime * speed;
-            if (tmpPos.x < focusPos)
-            {
-                tmpPos.x = focusPos;
-                creditsMenuScene.SetActive(true);
-            }
-        }
-        background.position = tmpPos;
+        SceneManager.LoadScene(name);
     }
+
 
     public void Quit()
     {

@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 5039094429754554329}
   m_Layer: 0
   m_Name: Graphics
-  m_TagString: Untagged
+  m_TagString: Ennemie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,12 +129,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.565
+  m_Radius: 1.1
 --- !u!114 &5039094429754554330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,7 +147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b262d00d3d26b48d49c1f17c57b1d31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
   waypoints:
   - {fileID: 5039094431621224320}
   - {fileID: 5039094431226915406}
@@ -266,7 +265,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5039094431226915405}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.852201, y: 1.8659096, z: 0}
+  m_LocalPosition: {x: 25.02, y: 1.8659096, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5039094429749541435}

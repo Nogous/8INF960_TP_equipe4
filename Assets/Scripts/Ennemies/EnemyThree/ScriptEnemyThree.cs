@@ -20,7 +20,7 @@ public class ScriptEnemyThree : MonoBehaviour
     void Update()
     {
         Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * GameManager.instance.speedEnemie * Time.deltaTime, Space.World);
+        transform.Translate(dir.normalized * GameManager.instance.speedEnemie * 2 * Time.deltaTime, Space.World);
 
         // si l'enemi est quasiment arrivé à sa destination
         if(Vector3.Distance(transform.position,target.position)<0.3f)

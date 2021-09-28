@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
     private float couldawnEnnemieSpeed = 0f;
     public float TimeEnnemieSlow = 10f;
 
+    public GameObject pauseMenu;
+
     private void Awake()
     {
         if (!instance)
@@ -51,6 +53,7 @@ public class GameManager : MonoBehaviour
     {
         winScreen.SetActive(false);
         loseScreen.SetActive(false);
+        pauseMenu.SetActive(false);
         currentTime = levelDuration;
     }
 
@@ -72,6 +75,12 @@ public class GameManager : MonoBehaviour
         if (InitSpeedEnemie != speedEnemie)
         {
             UpdateSpeedEnnemie();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = 0f;
+            pauseMenu.SetActive(true);
         }
     }
 
@@ -146,5 +155,11 @@ public class GameManager : MonoBehaviour
         {
             speedEnemie = InitSpeedEnemie;
         }
+    }
+
+    public void BackToGame()
+    {
+        Time.timeScale = 1f;
+        pauseMenu.SetActive(false);
     }
 }
