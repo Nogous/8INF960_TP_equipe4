@@ -63,9 +63,16 @@ public class GameManager : MonoBehaviour
         if (levelEnd)
         {
             if (winLevel)
+            {
+                print("win");
+                SoundManager.instance.PlaySound("Win");
                 winScreen.SetActive(true);
+            }
             else
+            {
+                SoundManager.instance.PlaySound("Game Over");
                 loseScreen.SetActive(true);
+            }
 
             return;
         }

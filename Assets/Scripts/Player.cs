@@ -74,6 +74,7 @@ public class Player : MonoBehaviour
         // Saver si le joueur va sauter
         if (Input.GetButtonDown("Jump") && isGrounded == true) // Jump défnit sur la barre espace de base
         {
+            SoundManager.instance.PlaySound("Jump");
             jump = true;
         }
 
@@ -135,6 +136,7 @@ public class Player : MonoBehaviour
     {
         if (collision.CompareTag("Coin"))
         {
+            SoundManager.instance.PlaySound("UI Back Button");
             GameManager.instance.AddCoin();
             collision.gameObject.SetActive(false);
         }
@@ -142,8 +144,9 @@ public class Player : MonoBehaviour
         {
             if (isInvincible) return;
 
+            SoundManager.instance.PlaySound("Hurt");
             health -= 1;
-            if (health<=0)
+            if (health <= 0)
                 animator.SetBool("isDead", true);
             else
             {
@@ -154,6 +157,7 @@ public class Player : MonoBehaviour
         }
         else if (collision.CompareTag("KillZone"))
         {
+            SoundManager.instance.PlaySound("Hurt");
             health = 0;
             animator.SetBool("isDead", true);
             GameManager.instance.SetHealth(health);
@@ -165,6 +169,7 @@ public class Player : MonoBehaviour
         }
         else if (collision.CompareTag("Potion"))
         {
+            SoundManager.instance.PlaySound("UI Back Button");
             GameManager.instance.PickupBonus();
             collision.gameObject.SetActive(false);
         }

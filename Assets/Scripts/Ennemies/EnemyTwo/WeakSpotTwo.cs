@@ -9,6 +9,7 @@ public class WeakSpotTwo : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
+            SoundManager.instance.PlaySound("Kill ennemy");
             Destroy(objectToDestroy);
         }
     }
