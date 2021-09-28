@@ -330,6 +330,73 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &804414449
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4258459463395365149, guid: b0b100d2bd29d574ab0cb1bbfaef6759, type: 3}
+      propertyPath: m_Name
+      value: UI Sounds
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729588285066664439, guid: b0b100d2bd29d574ab0cb1bbfaef6759, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729588285066664439, guid: b0b100d2bd29d574ab0cb1bbfaef6759, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 799.27924
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729588285066664439, guid: b0b100d2bd29d574ab0cb1bbfaef6759, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 202.75941
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729588285066664439, guid: b0b100d2bd29d574ab0cb1bbfaef6759, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -127.222046
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729588285066664439, guid: b0b100d2bd29d574ab0cb1bbfaef6759, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729588285066664439, guid: b0b100d2bd29d574ab0cb1bbfaef6759, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729588285066664439, guid: b0b100d2bd29d574ab0cb1bbfaef6759, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729588285066664439, guid: b0b100d2bd29d574ab0cb1bbfaef6759, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729588285066664439, guid: b0b100d2bd29d574ab0cb1bbfaef6759, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729588285066664439, guid: b0b100d2bd29d574ab0cb1bbfaef6759, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729588285066664439, guid: b0b100d2bd29d574ab0cb1bbfaef6759, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b0b100d2bd29d574ab0cb1bbfaef6759, type: 3}
+--- !u!82 &804414450 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1131207971678865679, guid: b0b100d2bd29d574ab0cb1bbfaef6759, type: 3}
+  m_PrefabInstance: {fileID: 804414449}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &804414451 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8186878671207352659, guid: b0b100d2bd29d574ab0cb1bbfaef6759, type: 3}
+  m_PrefabInstance: {fileID: 804414449}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &853751618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,6 +1180,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1505300388}
     m_Modifications:
+    - target: {fileID: 6463665406320012966, guid: 2654cc1244943af46a7f3e14ecac7c6a, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 804414450}
+    - target: {fileID: 6463665406320012966, guid: 2654cc1244943af46a7f3e14ecac7c6a, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 804414451}
+    - target: {fileID: 6463665406320012966, guid: 2654cc1244943af46a7f3e14ecac7c6a, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 6463665406320012966, guid: 2654cc1244943af46a7f3e14ecac7c6a, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
     - target: {fileID: 8045626777421708823, guid: 2654cc1244943af46a7f3e14ecac7c6a, type: 3}
       propertyPath: m_text
       value: Back
