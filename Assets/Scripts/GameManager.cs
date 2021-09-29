@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     private GameObject winScreen;
     [SerializeField]
     private GameObject loseScreen;
+    private bool endSoundPlayed;
 
     [SerializeField]
     private float levelDuration = 120f;
@@ -55,16 +56,16 @@ public class GameManager : MonoBehaviour
         loseScreen.SetActive(false);
         pauseMenu.SetActive(false);
         currentTime = levelDuration;
+        endSoundPlayed = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (levelEnd)
+        if (levelEnd && !endSoundPlayed)
         {
             if (winLevel)
             {
-                print("win");
                 SoundManager.instance.PlaySound("Win");
                 winScreen.SetActive(true);
             }
@@ -73,7 +74,8 @@ public class GameManager : MonoBehaviour
                 SoundManager.instance.PlaySound("Game Over");
                 loseScreen.SetActive(true);
             }
-
+            Time.timeScale = 0f;
+            endSoundPlayed = true;
             return;
         }
 

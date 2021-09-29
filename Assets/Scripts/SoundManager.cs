@@ -23,15 +23,23 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(string soundName)
     {
-        for (int i = sources.Count; i-->0;)
+        foreach (var source in sources)
+        {
+            if (soundName == source.name)
+            {
+                source.PlayOneShot(source.clip);
+                return;
+            }
+        }
+        /*for (int i = sources.Count; i-->0;)
         {
             if (soundName == sources[i].gameObject.name)
             {
                 sources[i].Play();
                 return;
             }
-        }
+        }*/
 
-        Debug.Log("La source audio \"" +soundName+"\" n'est pas referancer dans la liste de sources du SoundManager");
+        Debug.Log("La source audio \"" +soundName+"\" n'est pas referencee dans la liste de sources du SoundManager");
     }
 }
