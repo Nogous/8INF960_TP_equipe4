@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 472116617}
   - component: {fileID: 472116620}
-  - component: {fileID: 472116619}
   - component: {fileID: 472116618}
   m_Layer: 5
   m_Name: Names
@@ -197,36 +196,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &472116619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 472116616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &472116620
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2175,13 +2144,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4732517486320227844, guid: 59ee4ef71abbcd649a90eabad716b09c, type: 3}
       propertyPath: m_text
-      value: "Menu Start\r\nMenu Pause\r\nMenu Credit\r\nMouvement de la cam\xE9ra\r\nEffet
-        de ralentissement sur les ennemies\r\nGestion de l\u2019audio\r\ninteraction
-        joueur ennemies\r\ninteraction joueur objets\r\nKillZone\r\n\n"
+      value: "Menu Start\r\nMenu Pause\r\nMenu Credit\r\nMouvement de la cam\xE9ra\r\nRalentissement
+        des ennemies\r\nGestion de l\u2019audio\r\ninteraction joueur ennemies\r\ninteraction
+        joueur objets\r\nKillZone\r\nSpawn potions\n\n"
       objectReference: {fileID: 0}
     - target: {fileID: 4732517486320227844, guid: 59ee4ef71abbcd649a90eabad716b09c, type: 3}
       propertyPath: m_fontSize
-      value: 27.6
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4732517486320227844, guid: 59ee4ef71abbcd649a90eabad716b09c, type: 3}
       propertyPath: m_fontSizeMax
